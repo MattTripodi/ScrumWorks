@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A7A3D9AC28833DA5004ABAA6 /* ScrumWorksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3D9AB28833DA5004ABAA6 /* ScrumWorksApp.swift */; };
-		A7A3D9AE28833DA5004ABAA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3D9AD28833DA5004ABAA6 /* ContentView.swift */; };
+		A7A3D9AE28833DA5004ABAA6 /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3D9AD28833DA5004ABAA6 /* MeetingView.swift */; };
 		A7A3D9B028833DA7004ABAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A3D9AF28833DA7004ABAA6 /* Assets.xcassets */; };
 		A7A3D9B328833DA7004ABAA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A3D9B228833DA7004ABAA6 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		A7A3D9A828833DA5004ABAA6 /* ScrumWorks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrumWorks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A3D9AB28833DA5004ABAA6 /* ScrumWorksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumWorksApp.swift; sourceTree = "<group>"; };
-		A7A3D9AD28833DA5004ABAA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A7A3D9AD28833DA5004ABAA6 /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
 		A7A3D9AF28833DA7004ABAA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A3D9B228833DA7004ABAA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A3D9AB28833DA5004ABAA6 /* ScrumWorksApp.swift */,
-				A7A3D9AD28833DA5004ABAA6 /* ContentView.swift */,
+				A7A3D9AD28833DA5004ABAA6 /* MeetingView.swift */,
 				A7A3D9AF28833DA7004ABAA6 /* Assets.xcassets */,
 				A7A3D9B128833DA7004ABAA6 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A3D9AE28833DA5004ABAA6 /* ContentView.swift in Sources */,
+				A7A3D9AE28833DA5004ABAA6 /* MeetingView.swift in Sources */,
 				A7A3D9AC28833DA5004ABAA6 /* ScrumWorksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
