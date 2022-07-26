@@ -38,6 +38,21 @@ class ScrumStore: ObservableObject {
         }
     }
     
+    //The save function returns a value that callers of the function may not use. The @discardableResult attribute disables warnings about the unused return value.
+    @discardableResult
+    static func save(scrums: [DailyScrum]) async throws -> Int {
+        try await withCheckedThrowingContinuation{ continuation in
+            save(scrums: scrums) { result in
+                switch result {
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                case .success(let scrumsSaved):
+                    continuation.resume(returning: scrumsSaved)
+                }
+            }
+        }
+    }
+    
     //Static function to load data. Result is a single type that represents the outcome of an operation, whether it’s a success or failure. The load function accepts a completion closure that it calls asynchronously with either an array of scrums or an error.
     static func load(completion: @escaping (Result<[DailyScrum], Error>)->Void) {
         //Dispatch queues are first in, first out (FIFO) queues to which your application can submit tasks. Background tasks have the lowest priority of all tasks.
