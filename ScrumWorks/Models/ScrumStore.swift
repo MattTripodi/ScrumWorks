@@ -48,4 +48,22 @@ class ScrumStore: ObservableObject {
             }
         }
     }
+    
+    //This method accepts a completion handler that accepts either the number of saved scrums or an error.
+    static func save(scrums: [DailyScrum], completion: @escaping (Result<Int, Error>)->Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let data = try JSONEncoder().encode(scrums)
+                let outfile = try fileURL()
+                try data.write(to: outfile)
+                DispatchQueue.main.async {
+                    completion(.success(scrums.count))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
 }
