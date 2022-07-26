@@ -37,6 +37,9 @@ struct MeetingView: View {
         }
         .onDisappear {
             scrumTimer.stopScrum()
+            //onDisappear(perform:) executes the closure when the view disappears. The closure updates the history without user interaction.
+            let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrum.timer.secondsElapsed / 60)
+            scrum.history.insert(newHistory, at: 0)
         }
         .navigationBarTitleDisplayMode(.inline)
     }

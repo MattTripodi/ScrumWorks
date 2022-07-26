@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ScrumsView: View {
     @Binding var scrums: [DailyScrum]
+    @Environment(\.scenePhase) private var scenePhase
     //The isPresentingNewScrumView property controls the presentation of the edit view to create a new scrum
     @State private var isPresentingNewScrumView = false
     //newScrumData is the source of truth for all the changes the user makes to the new scrum
     @State private var newScrumData = DailyScrum.Data()
+    let saveAction: ()->Void
     
     var body: some View {
         List {
@@ -56,13 +58,17 @@ struct ScrumsView: View {
                     }
             }
         }
+        .onChange(of: scenePhase) { phase in
+            //A scene in the inactive phase no longer receives events and may be unavailable to the user.
+            if phase == .inactive { saveAction() }
+        }
     }
 }
 
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScrumsView(scrums: .constant(DailyScrum.sampleData))
+            ScrumsView(scrums: .constant(DailyScrum.sampleData), saveAction: {})
         }
     }
 }
