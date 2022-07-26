@@ -9,11 +9,24 @@ import SwiftUI
 
 @main
 struct ScrumWorksApp: App {
-    @State private var scrums = DailyScrum.sampleData
+    //The @StateObject property wrapper creates a single instance of an observable object for each instance of the structure that declares it.
+    @StateObject private var store = ScrumStore()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ScrumsView(scrums: $scrums)
+                ScrumsView(scrums: $store.scrums)
+            }
+            .onAppear() {
+                ScrumStore.load { result in
+                    //Switch statement to update the store’s scrums array with the decoded data or halt execution if load(completion:) returns an error.
+                    switch result {
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    case .success(let scrums):
+                        store.scrums = scrums
+                    }
+                }
             }
         }
     }
