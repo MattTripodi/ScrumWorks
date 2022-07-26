@@ -21,4 +21,31 @@ class ScrumStore: ObservableObject {
                                     create: false)
         .appendingPathComponent("scrums.data")
     }
+    
+    //Static function to load data. Result is a single type that represents the outcome of an operation, whether it’s a success or failure. The load function accepts a completion closure that it calls asynchronously with either an array of scrums or an error.
+    static func load(completion: @escaping (Result<[DailyScrum], Error>)->Void) {
+        //Dispatch queues are first in, first out (FIFO) queues to which your application can submit tasks. Background tasks have the lowest priority of all tasks.
+        DispatchQueue.global(qos: .background).async {
+            //do-catch statement to handle any errors when loading data
+            do {
+                let fileURL = try fileURL()
+                //Because scrums.data doesn’t exist when a user launches the app for the first time, you call the completion handler with an empty array if there’s an error opening the file handle.
+                guard let file = try? FileHandle(forReadingFrom: fileURL) else {
+                    DispatchQueue.main.async {
+                        completion(.success([]))
+                    }
+                    return
+                }
+                //Decode the file’s available data into a local constant
+                let dailyScrums = try JSONDecoder().decode([DailyScrum].self, from: file.availableData)
+                DispatchQueue.main.async {
+                    completion(.success(dailyScrums))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
 }
