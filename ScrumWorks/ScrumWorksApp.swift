@@ -16,22 +16,21 @@ struct ScrumWorksApp: App {
         WindowGroup {
             NavigationView {
                 ScrumsView(scrums: $store.scrums) {
-                    ScrumStore.save(scrums: store.scrums) { result in
-                        if case .failure(let error) = result {
-                            fatalError(error.localizedDescription)
+                    //Task creates a new asynchronous context that will be used to call ScrumStore.save().
+                    Task {
+                        do {
+                            try await ScrumStore.save(scrums: store.scrums)
+                        } catch {
+                            fatalError("Error saving scrums.")
                         }
                     }
                 }
             }
-            .onAppear() {
-                ScrumStore.load { result in
-                    //Switch statement to update the store’s scrums array with the decoded data or halt execution if load(completion:) returns an error.
-                    switch result {
-                    case .failure(let error):
-                        fatalError(error.localizedDescription)
-                    case .success(let scrums):
-                        store.scrums = scrums
-                    }
+            .task {
+                do {
+                    store.scrums = try await ScrumStore.load()
+                } catch {
+                    fatalError("Error loading scrums.")
                 }
             }
         }
