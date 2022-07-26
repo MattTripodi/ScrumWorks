@@ -11,6 +11,7 @@ import SwiftUI
 struct ScrumWorksApp: App {
     //The @StateObject property wrapper creates a single instance of an observable object for each instance of the structure that declares it.
     @StateObject private var store = ScrumStore()
+    @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
@@ -21,7 +22,7 @@ struct ScrumWorksApp: App {
                         do {
                             try await ScrumStore.save(scrums: store.scrums)
                         } catch {
-                            fatalError("Error saving scrums.")
+                            errorWrapper = ErrorWrapper(error: error, guidance: "Try again later.")
                         }
                     }
                 }
@@ -30,8 +31,13 @@ struct ScrumWorksApp: App {
                 do {
                     store.scrums = try await ScrumStore.load()
                 } catch {
-                    fatalError("Error loading scrums.")
+                    errorWrapper = ErrorWrapper(error: error, guidance: "ScrumWorks will load sample data and continue.")
                 }
+            }
+            .sheet(item: $errorWrapper, onDismiss: {
+                store.scrums = DailyScrum.sampleData
+            }) { wrapper in
+                ErrorView(errorWrapper: wrapper)
             }
         }
     }
