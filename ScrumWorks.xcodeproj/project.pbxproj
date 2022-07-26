@@ -21,6 +21,8 @@
 		A7B29A92288D9B9400089D9E /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A91288D9B9400089D9E /* AVPlayer+Ding.swift */; };
 		A7B29A96288F971100089D9E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A95288F971100089D9E /* History.swift */; };
 		A7B29A98288F9CB400089D9E /* ScrumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A97288F9CB400089D9E /* ScrumStore.swift */; };
+		A7B29A9A2890712100089D9E /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A992890712000089D9E /* ErrorWrapper.swift */; };
+		A7B29A9C289071DE00089D9E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A9B289071DE00089D9E /* ErrorView.swift */; };
 		A7DDBAD42885C3F4009ED518 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD32885C3F4009ED518 /* DailyScrum.swift */; };
 		A7DDBAD62885C799009ED518 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD52885C799009ED518 /* CardView.swift */; };
 		A7DDBAD82885C9AD009ED518 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD72885C9AD009ED518 /* TrailingIconLabelStyle.swift */; };
@@ -46,6 +48,8 @@
 		A7B29A94288D9DA400089D9E /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		A7B29A95288F971100089D9E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		A7B29A97288F9CB400089D9E /* ScrumStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumStore.swift; sourceTree = "<group>"; };
+		A7B29A992890712000089D9E /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		A7B29A9B289071DE00089D9E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		A7DDBAD32885C3F4009ED518 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
 		A7DDBAD52885C799009ED518 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A7DDBAD72885C9AD009ED518 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				A7DDBAD52885C799009ED518 /* CardView.swift */,
 				A7DDBADD28865195009ED518 /* DetailEditView.swift */,
 				A7DDBADB28863869009ED518 /* DetailView.swift */,
+				A7B29A9B289071DE00089D9E /* ErrorView.swift */,
 				A7B29A8F288D976900089D9E /* MeetingFooterView.swift */,
 				A7B29A89288D8D0900089D9E /* MeetingHeaderView.swift */,
 				A7A3D9AD28833DA5004ABAA6 /* MeetingView.swift */,
@@ -117,6 +122,7 @@
 			children = (
 				A7B29A91288D9B9400089D9E /* AVPlayer+Ding.swift */,
 				A7DDBAD32885C3F4009ED518 /* DailyScrum.swift */,
+				A7B29A992890712000089D9E /* ErrorWrapper.swift */,
 				A7B29A95288F971100089D9E /* History.swift */,
 				A7B29A97288F9CB400089D9E /* ScrumStore.swift */,
 				A7B29A8D288D963100089D9E /* ScrumTimer.swift */,
@@ -213,10 +219,12 @@
 				A7DDBADC28863869009ED518 /* DetailView.swift in Sources */,
 				A7B29A8A288D8D0900089D9E /* MeetingHeaderView.swift in Sources */,
 				A7DDBADE28865195009ED518 /* DetailEditView.swift in Sources */,
+				A7B29A9A2890712100089D9E /* ErrorWrapper.swift in Sources */,
 				A7DDBAD82885C9AD009ED518 /* TrailingIconLabelStyle.swift in Sources */,
 				A7A3D9BB2885BDC9004ABAA6 /* Theme.swift in Sources */,
 				A7DDBADA28862F5C009ED518 /* ScrumsView.swift in Sources */,
 				A7A3D9AE28833DA5004ABAA6 /* MeetingView.swift in Sources */,
+				A7B29A9C289071DE00089D9E /* ErrorView.swift in Sources */,
 				A7A3D9AC28833DA5004ABAA6 /* ScrumWorksApp.swift in Sources */,
 				A7B29A86288B4F7E00089D9E /* ThemeView.swift in Sources */,
 				A7DDBAD62885C799009ED518 /* CardView.swift in Sources */,
@@ -357,6 +365,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

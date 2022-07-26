@@ -11,28 +11,33 @@ import SwiftUI
 struct ScrumWorksApp: App {
     //The @StateObject property wrapper creates a single instance of an observable object for each instance of the structure that declares it.
     @StateObject private var store = ScrumStore()
+    @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ScrumsView(scrums: $store.scrums) {
-                    ScrumStore.save(scrums: store.scrums) { result in
-                        if case .failure(let error) = result {
-                            fatalError(error.localizedDescription)
+                    //Task creates a new asynchronous context that will be used to call ScrumStore.save().
+                    Task {
+                        do {
+                            try await ScrumStore.save(scrums: store.scrums)
+                        } catch {
+                            errorWrapper = ErrorWrapper(error: error, guidance: "Try again later.")
                         }
                     }
                 }
             }
-            .onAppear() {
-                ScrumStore.load { result in
-                    //Switch statement to update the store’s scrums array with the decoded data or halt execution if load(completion:) returns an error.
-                    switch result {
-                    case .failure(let error):
-                        fatalError(error.localizedDescription)
-                    case .success(let scrums):
-                        store.scrums = scrums
-                    }
+            .task {
+                do {
+                    store.scrums = try await ScrumStore.load()
+                } catch {
+                    errorWrapper = ErrorWrapper(error: error, guidance: "ScrumWorks will load sample data and continue.")
                 }
+            }
+            .sheet(item: $errorWrapper, onDismiss: {
+                store.scrums = DailyScrum.sampleData
+            }) { wrapper in
+                ErrorView(errorWrapper: wrapper)
             }
         }
     }
