@@ -22,6 +22,22 @@ class ScrumStore: ObservableObject {
         .appendingPathComponent("scrums.data")
     }
     
+    //Adding the async keyword after the parameter list indicates that the function is asynchronous.
+    static func load() async throws -> [DailyScrum] {
+        //Calling withCheckedThrowingContinuation suspends the load function, then passes a continuation into a closure that you provide. A continuation is a value that represents the code after an awaited function.
+        try await withCheckedThrowingContinuation { continuation in
+            load { result in
+                //switch statement to handle the result cases.
+                switch result {
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                case .success(let scrums):
+                    continuation.resume(returning: scrums)
+                }
+            }
+        }
+    }
+    
     //Static function to load data. Result is a single type that represents the outcome of an operation, whether it’s a success or failure. The load function accepts a completion closure that it calls asynchronously with either an array of scrums or an error.
     static func load(completion: @escaping (Result<[DailyScrum], Error>)->Void) {
         //Dispatch queues are first in, first out (FIFO) queues to which your application can submit tasks. Background tasks have the lowest priority of all tasks.
