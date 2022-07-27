@@ -29,6 +29,19 @@ struct MeetingTimerView: View {
                 .accessibilityElement(children: .combine)
                 .foregroundStyle(theme.accentColor)
             }
+            .overlay {
+                ForEach(speakers) { speaker in
+                    //if statement that checks whether the speaker is finished and uses optional binding to find the index of the speaker.
+                    if speaker.isCompleted, let index = speakers.firstIndex(where: { $0.id == speaker.id }) {
+                        SpeakerArc(speakerIndex: index, totalSpeakers: speakers.count)
+                            //Rotating the arc moves the 0-degree angle to the 12 o’clock position.
+                            .rotation(Angle(degrees: -90))
+                            //The stroke modifier traces a line along the path of the shape.
+                            .stroke(theme.mainColor, lineWidth: 12)
+                    }
+                }
+            }
+            .padding(.horizontal)
     }
 }
 
