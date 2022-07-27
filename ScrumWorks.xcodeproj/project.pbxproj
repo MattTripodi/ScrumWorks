@@ -24,6 +24,7 @@
 		A7B29A9A2890712100089D9E /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A992890712000089D9E /* ErrorWrapper.swift */; };
 		A7B29A9C289071DE00089D9E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A9B289071DE00089D9E /* ErrorView.swift */; };
 		A7B29A9E2890ED4600089D9E /* MeetingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A9D2890ED4600089D9E /* MeetingTimerView.swift */; };
+		A7B29AA02890EFD700089D9E /* SpeakerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B29A9F2890EFD600089D9E /* SpeakerArc.swift */; };
 		A7DDBAD42885C3F4009ED518 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD32885C3F4009ED518 /* DailyScrum.swift */; };
 		A7DDBAD62885C799009ED518 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD52885C799009ED518 /* CardView.swift */; };
 		A7DDBAD82885C9AD009ED518 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DDBAD72885C9AD009ED518 /* TrailingIconLabelStyle.swift */; };
@@ -52,6 +53,7 @@
 		A7B29A992890712000089D9E /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
 		A7B29A9B289071DE00089D9E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		A7B29A9D2890ED4600089D9E /* MeetingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTimerView.swift; sourceTree = "<group>"; };
+		A7B29A9F2890EFD600089D9E /* SpeakerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerArc.swift; sourceTree = "<group>"; };
 		A7DDBAD32885C3F4009ED518 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
 		A7DDBAD52885C799009ED518 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A7DDBAD72885C9AD009ED518 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A7B29A9D2890ED4600089D9E /* MeetingTimerView.swift */,
 				A7B29A8B288D950E00089D9E /* ScrumProgressViewStyle.swift */,
 				A7DDBAD928862F5C009ED518 /* ScrumsView.swift */,
+				A7B29A9F2890EFD600089D9E /* SpeakerArc.swift */,
 				A7B29A87288B519700089D9E /* ThemePicker.swift */,
 				A7B29A85288B4F7E00089D9E /* ThemeView.swift */,
 				A7DDBAD72885C9AD009ED518 /* TrailingIconLabelStyle.swift */,
@@ -232,6 +235,7 @@
 				A7A3D9AC28833DA5004ABAA6 /* ScrumWorksApp.swift in Sources */,
 				A7B29A86288B4F7E00089D9E /* ThemeView.swift in Sources */,
 				A7DDBAD62885C799009ED518 /* CardView.swift in Sources */,
+				A7B29AA02890EFD700089D9E /* SpeakerArc.swift in Sources */,
 				A7B29A92288D9B9400089D9E /* AVPlayer+Ding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
