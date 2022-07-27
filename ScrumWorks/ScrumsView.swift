@@ -24,6 +24,7 @@ struct ScrumsView: View {
                 }
                 .listRowBackground(scrum.theme.mainColor)
             }
+            .onDelete(perform: delete)
         }
         .navigationTitle("Daily Scrums")
         .toolbar {
@@ -62,6 +63,12 @@ struct ScrumsView: View {
             //A scene in the inactive phase no longer receives events and may be unavailable to the user.
             if phase == .inactive { saveAction() }
         }
+    }
+}
+
+extension ScrumsView {
+    func delete(at offsets: IndexSet) {
+        scrums.remove(atOffsets: offsets)
     }
 }
 
