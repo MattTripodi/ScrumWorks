@@ -22,7 +22,7 @@ struct MeetingTimerView: View {
             .strokeBorder(lineWidth: 24)
             .overlay {
                 VStack {
-                    Text("Placeholder")
+                    Text(currentSpeaker)
                         .font(.title)
                     Text("is speaking")
                     //Image that shows mic when recording or mic.slash when not recording.
