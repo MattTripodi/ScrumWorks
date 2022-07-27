@@ -46,7 +46,7 @@ struct MeetingView: View {
             speechRecognizer.stopTranscribing()
             isRecording = false
             //onDisappear(perform:) executes the closure when the view disappears. The closure updates the history without user interaction.
-            let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrum.timer.secondsElapsed / 60)
+            let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrum.timer.secondsElapsed / 60, transcript: speechRecognizer.transcript)
             scrum.history.insert(newHistory, at: 0)
         }
         .navigationBarTitleDisplayMode(.inline)

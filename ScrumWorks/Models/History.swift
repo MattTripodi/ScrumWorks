@@ -13,12 +13,14 @@ struct History: Identifiable , Codable{
     let date: Date
     var attendees: [DailyScrum.Attendee]
     var lenghtInMinutes: Int
+    var transcript: String?
     
     //Initializer that provides default parameters for each property.
-    init(id: UUID = UUID(), date: Date = Date(), attendees: [DailyScrum.Attendee], lengthInMinutes: Int = 5) {
+    init(id: UUID = UUID(), date: Date = Date(), attendees: [DailyScrum.Attendee], lengthInMinutes: Int = 5, transcript: String? = nil) {
         self.id = id
         self.date = date
         self.attendees = attendees
         self.lenghtInMinutes = lengthInMinutes
+        self.transcript = transcript
     }
 }
