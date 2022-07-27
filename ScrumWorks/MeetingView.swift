@@ -22,7 +22,7 @@ struct MeetingView: View {
                 .fill(scrum.theme.mainColor)
             VStack {
                 MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsRemaining: scrumTimer.secondsRemaining, theme: scrum.theme)
-                MeetingTimerView(speakers: scrumTimer.speakers, theme: scrum.theme)
+                MeetingTimerView(speakers: scrumTimer.speakers, isRecording: isRecording, theme: scrum.theme)
                 MeetingFooterView(speakers: scrumTimer.speakers, skipAction: scrumTimer.skipSpeaker)
             }
         }
@@ -44,7 +44,7 @@ struct MeetingView: View {
             scrumTimer.stopScrum()
             //When the meeting timer screen disappears, the stopTranscribing() method stops the transcription.
             speechRecognizer.stopTranscribing()
-            isRecording = false 
+            isRecording = false
             //onDisappear(perform:) executes the closure when the view disappears. The closure updates the history without user interaction.
             let newHistory = History(attendees: scrum.attendees, lengthInMinutes: scrum.timer.secondsElapsed / 60)
             scrum.history.insert(newHistory, at: 0)
